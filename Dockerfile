@@ -1,6 +1,11 @@
-FROM nextcloud:latest
+FROM ubuntu:latest
 
-EXPOSE 80
-# Set environment variables if needed
-ENV NEXTCLOUD_ADMIN_USER=admin
-ENV NEXTCLOUD_ADMIN_PASSWORD=admin
+# Update package lists and install necessary packages
+RUN apt-get update 
+
+
+# Expose port 1194 for OpenVPN
+EXPOSE 1194
+
+# Set the default command to keep the container running
+CMD ["sh"]
