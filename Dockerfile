@@ -6,7 +6,7 @@ ENV MYSQL_ROOT_PASSWORD=rootroot
 ENV MYSQL_DATABASE=demo
 
 # Expose the port MySQL runs on
-EXPOSE 3306
+EXPOSE 8080
 
 # Add a custom MySQL configuration file (optional)
 # COPY ./my.cnf /etc/mysql/my.cnf
