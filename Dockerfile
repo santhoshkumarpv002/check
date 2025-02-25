@@ -1,10 +1,18 @@
-FROM ubuntu:latest
+# Use the official MySQL image from the Docker Hub
+FROM mysql:latest
 
-# Update package lists and install necessary packages
-RUN apt-get update && apt-get install -y openvpn
+# Set environment variables
+ENV MYSQL_ROOT_PASSWORD=rootroot
+ENV MYSQL_DATABASE=demo
 
-# Expose port 8080 for Cloud Run
-EXPOSE 8080
+# Expose the port MySQL runs on
+EXPOSE 3306
 
-# Set the default command
-CMD ["sh"]
+# Add a custom MySQL configuration file (optional)
+# COPY ./my.cnf /etc/mysql/my.cnf
+
+# Run initialization script (optional)
+# COPY ./init.sql /docker-entrypoint-initdb.d/
+
+# Default command to run MySQL server
+CMD ["mysqld"]
